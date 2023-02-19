@@ -24,11 +24,14 @@ yo code
 ## 调试
 
 ```bash
-# 编译并开启监听
-npm run watch
+# 编译
+npm run compile
+
+# 编译并开启监听的话，下面按 F5 没有任何反应。。。无语的bug
+# npm run watch
 ```
 
-按 `F5` 开始调试
+按 `F5` 开始调试，会新开一个vscode实例
 
 ## 打包
 
@@ -45,8 +48,6 @@ npm install -g @vscode/vsce
 ```
 
 修改 README.md 文件，内容为插件使用说明，图片链接不能是相对路径，必须是 http 链接，否则下面的命令会报错
-
-```bash
 
 生成 vsix 文件
 

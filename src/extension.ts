@@ -7,7 +7,12 @@ function currentPageUri() {
 	return vscode.window.activeTextEditor
 		&& vscode.window.activeTextEditor.document
 		&& vscode.window.activeTextEditor.document.uri;
-  }
+}
+
+const terminal = vscode.window.createTerminal({
+    name: "Typora",
+    hideFromUser: true,
+});
 
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
@@ -25,7 +30,9 @@ export function activate(context: vscode.ExtensionContext) {
 			child_process.exec(`open -a typora ${filePath}`);
 		  } else if (process.platform === 'win32') {
 			// 需先配置好环境变量
-			child_process.exec(`start typora ${filePath}`);
+			// 没起作用
+			// child_process.exec(`typora ${filePath}`);
+			terminal.sendText(`typora ${filePath}`);
 		  } else {
 			vscode.window.showErrorMessage(`Unsupported platform: ${process.platform}`);
 		  }
