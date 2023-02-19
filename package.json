@@ -10,16 +10,36 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:open-in-typora.helloWorld"
+    "onCommand:extension.openFileInTypora"
   ],
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "open-in-typora.helloWorld",
-        "title": "Hello World"
+        "command": "extension.openFileInTypora",
+        "title": "Open File in Typora"
       }
-    ]
+    ],
+    "keybindings": [
+      {
+        "command": "extension.openFileInTypora",
+        "key": "Ctrl+Alt+T"
+      }
+    ],
+    "menus": {
+      "editor/context":[
+        {
+          "command": "extension.openFileInTypora",
+          "group": "open-in-typora"
+        }
+      ],
+      "explorer/context": [
+        {
+          "command": "extension.openFileInTypora",
+          "group": "open-in-typora"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "yarn run package",
